@@ -64,6 +64,8 @@ namespace Shake
                 Console.Clear();
                 Console.SetCursorPosition(35, 10);
                 Console.WriteLine("Game Over!");
+                Console.SetCursorPosition(33, 12);
+                Console.WriteLine("Длина змейки: {0}", snake.Score());
                 Console.ReadLine();
           
         } 

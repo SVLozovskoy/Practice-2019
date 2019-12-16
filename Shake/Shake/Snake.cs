@@ -76,5 +76,10 @@ namespace Shake
             }
             else return false;
         }
+
+        internal int Score()
+        {
+            return pList.Count();
+        }
     }
 }
