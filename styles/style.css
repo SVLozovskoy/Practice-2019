@@ -1,0 +1,81 @@
+@font-face {
+    font-family: Signika Regular;
+    src: url(Signika/Signika-Regular.ttf);
+}
+body{
+    background-color:white;
+}
+
+
+
+.header{
+   display: block;
+   width: 1345px;
+   height: 295px;
+   position: relative;
+}
+.left-col{
+
+    display: inline-block;
+    background-color: red;
+    width: 435px;
+    height: 295px;
+    margin: 82px 82px;
+}
+.right-col{
+    display: inline-block;
+
+    width:850px;
+    height: 250px;
+    background-color: white;
+    
+}
+
+.bio > h2{
+    font-family: 'Signika', sans-serif;
+
+}
+.bio > p{
+    font-family: 'Signika', sans-serif;
+}
+
+
+
+
+.photo{
+    padding-top:35px;
+    padding-left: 25px;
+    float: left;
+}
+
+.bio{
+    float: right;
+    padding-top: 50px;
+    padding-right: 40px;
+}
+.icon-sq{
+    display: flex;
+    float:right;
+    margin-left: 0;
+    position: relative;
+    padding-top:30px;
+    
+}
+.col-2{
+    position: relative;
+    float:right;
+}
+.col-2 a{
+    color:red;
+}
+
+.main{
+    display: inline-block;
+}
+.main>.right-col-main>.big-text-box{
+    background-color: white;
+    width: 630px;
+    height: 345px;
+    float: left;
+    
+}
