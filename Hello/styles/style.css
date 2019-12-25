@@ -1,44 +1,70 @@
 @font-face {
-    font-family: Signika Regular;
-    src: url(Signika/Signika-Regular.ttf);
+    font-family: Signika;
+    src: url(Signika/Signika-Light.ttf);
 }
+@font-face{
+    font-family: Lato;
+    src: url(Lato/Lato-Light.ttf);
+}
+
 body{
     background-color:white;
 }
 
+h1{
+    font-family: 'Signika', sans-serif;
+    color:#33495F;
+    font-size: 1.9em;
+    margin-bottom: -15px;
 
 
-.header{
-   display: block;
-   width: 1345px;
-   height: 295px;
+}
+p{
+    font-family: 'Lato', sans-serif;
+    color:#33495F;
+    font-size: 1em;
+}
+
+.container{
+    background-color:#EAEDF1 ;
+    width: 1510px;
+    height: 5177px;
+   
+}
+.container>.header{
    position: relative;
+   display:table;
    clear: both;
+   margin: auto;
+  
 }
 .left-col{
-
-    display: inline-block;
+   
+    float: left;
     background-color: white;
     width: 435px;
     height: 295px;
-    margin: 82px 82px;
+    margin-top:80px;
+    margin-left: 80px;
 }
 .right-col{
-    display: inline-block;
-
-    width:850px;
-    height: 250px;
+    
+    float: left;
+    width:822px;
+    height: 295px;
     background-color: white;
+    margin-right: 84px;
+    margin-top:80px;
+    margin-left: 88px;
+    
+    
     
 }
-
-.bio > h2{
-    font-family: 'Signika', sans-serif;
-
+.social{
+   margin-bottom: 10px;
+    margin-left: 10px;
 }
-.bio > p{
-    font-family: 'Signika', sans-serif;
-}
+
 
 .photo{
     padding-top:35px;
@@ -59,21 +85,95 @@ body{
     padding-top:30px;
     
 }
+
+.col-1>h1{
+    margin-left:25px;
+    margin-top: 35px;
+    font-size: 2em;
+    padding-bottom: 0;
+}
+.col-1>p{
+    margin-left: 20px;
+    line-height:2;
+    font-size: 1.2em;
+    
+}
 .col-2{
-    position: relative;
+    margin-top: -140px;
+    margin-right: 80px;
     float:right;
+    
+    
+}
+
+.list-ul{
+    list-style: none;
 }
 .col-2 a{
     color:red;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.4em;
+    text-decoration: none;
+    
+}
+.col-2>p{
+    font-size: 1.4em;
 }
 
 .main{
-    display: inline-block;
+    position: relative;
+    display:table;
+    clear: both;
+    margin: auto;
 }
-.main>.right-col-main>.big-text-box{
+.main>.left-col-main, .main>.right-col-main{
+    float:left;
+   
+}
+.main>.left-col-main{
+    margin-left: 0px;
+    margin-right:80px;
+}
+.main>.right-col-main{
+    margin-right: 70px;
+}
+
+.big-text-box{
+    
     background-color: white;
     width: 630px;
     height: 345px;
-    float: left;
+    margin-left: 80px;
+    margin-top: 37px;
+
+}
+
+.small-text-box{
+    background-color: white;
+    width: 630px;
+    height: 155px;
+    margin-left: 80px;
+    margin-top: 37px;
+}
+
+.gray-big-text-box{
+    background-color: #DBE1E8;
+    width: 564px;
+    height: 169px;
+    margin-top: 37px;
+
+
+}
+.gray-small-text-box{
+    background-color:#DBE1E8;
+    width: 564px;
+    height: 155px;
+    margin-top: 37px;
+}
+.big-text-box_progressbar{
+    background-color: white;
+    width: 564px;
+    height: 361px;
+    margin-top: 37px;
     
 }
