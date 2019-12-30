@@ -506,3 +506,56 @@ progress::-webkit-progress-bar>.green{
     top:89%;
     z-index: auto;
 }
+
+
+.bars{
+    display: flex;
+}
+
+.bars>.progress-col-left>p, .bars>.progress-col-right>p{
+    margin-bottom: -2px;
+    margin-top:25px;
+}
+progress {
+    border:0;
+    width:268px ;
+    height: 15px;
+    border-radius: 5px;
+    background: #DBE1E8;
+    }
+progress::-webkit-progress-bar {
+    width:268px ;
+    height: 15px;
+    border-radius: 5px;
+    background: #DBE1E8;
+    }
+.bars>.progress-col-left>progress::-webkit-progress-value {
+    border-radius: 10px;
+    background: #10cdc1;
+    }
+.bars>.progress-col-right>progress::-webkit-progress-value {
+        border-radius: 10px;
+        background: #16C4EC;
+        }
+
+.bars>.progress-col-left, .bars>.progress-col-right{
+    margin-left: 25px;
+}
+
+.bars>.progress-col-right{
+    margin-left: 45px;
+}
+
+progress{
+    width:268px ;
+    height: 15px;
+    border-radius: 5px;
+    background-color: #DBE1E8;
+   
+}
+progress::-webkit-progress-value{
+    width:268px ;
+    height: 15px;
+    border-radius: 5px;
+    background-color:  #10CDC1;  
+}
