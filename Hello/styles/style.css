@@ -89,7 +89,7 @@ p{
     top:10;
 }
 
-.btn>p{
+.btn>p, .btn-right>p{
     position: relative;
     top:-15%;
     color:white;
@@ -110,6 +110,8 @@ p{
    display:table;
    clear: both;
    margin: auto;
+   margin-bottom: 4px;
+  
   
 }
 .left-col{
@@ -118,8 +120,8 @@ p{
     background-color: white;
     width: 435px;
     height: 295px;
-    margin-top:80px;
-    margin-left: 80px;
+    margin-top:82px;
+    margin-left: 78px;
 }
 .right-col{
     
@@ -128,12 +130,13 @@ p{
     height: 295px;
     background-color: white;
     margin-right: 84px;
-    margin-top:80px;
+    margin-top:82px;
     margin-left: 88px;
     
     
     
 }
+
 .social{
    margin-bottom: 10px;
     margin-left: 10px;
@@ -182,7 +185,11 @@ p{
 .list-ul{
     list-style: none;
 }
-
+.col-2>hr{
+    border-style: solid;
+    border-width: 0.5px;
+    margin-top: 25px;
+}
 .col-2 a{
     color:red;
     font-family: 'Lato', sans-serif;
@@ -203,8 +210,9 @@ p{
 }
 
 .main>.left-col-main{
-    margin-left: 82px;
+    margin-left: 80px;
     margin-right:40px;
+    
 }
 .main>.right-col-main{
     margin-right: 70px;
@@ -215,17 +223,17 @@ p{
     
     background-color: white;
     width: 634px;
-    height: 341px;
-    border-radius: 2px;
-    margin-top: 34px;
+    height: 340px;
+    border-radius: 1px;
+    margin-top: 32px;
 
 }
 
 .small-text-box{
     background-color: white;
     width: 634px;
-    height: 168px;
-    border-radius: 2px;
+    height: 170px;
+    border-radius: 1px;
     margin-top: 34px;
 }
 
@@ -236,7 +244,7 @@ p{
     width: 623px;
     height: 173px;
     margin-top: 37px;
-    border-radius: 2px;
+    border-radius: 1px;
 
 
 }
@@ -245,7 +253,7 @@ p{
     width: 623px;
     height: 126px;
     margin-top: 37px;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 
 
@@ -262,7 +270,6 @@ p{
 }
 .small-text-box>h2{
   
-   padding-bottom: 40px; 
    margin-left: 20px;
 
 }
@@ -272,13 +279,17 @@ p{
 .gray-small-text-box>p, .gray-big-text-box>p{
     font-size: 15px;
 }
+
+.small-text-box>.block-footer{
+    margin-top: 35px;
+}
 .small-text-box>p{
     padding-top:25px;
     padding-left: 10px;
 }
 
 .gray-small-text-box>.block-footer{
-    margin-top:15px;
+    margin-top:1px;
 }
 .right{
    background-color: #10CDC1;
@@ -379,7 +390,7 @@ progress::-webkit-progress-bar>.green{
     margin-bottom: 150px;
     border-radius: 2px;
     
-    z-index: auto;
+    z-index: 50;
     
 }
 .time-line>.year{
@@ -389,7 +400,7 @@ progress::-webkit-progress-bar>.green{
     border-radius: 2px;
     left:48%;
     top:95%;  
-    z-index: auto;
+    z-index: 100;
     position: absolute;
     
     
@@ -408,7 +419,7 @@ progress::-webkit-progress-bar>.green{
     border-radius: 50px;
     left: 49.70%;
     top:17%;
-    z-index: auto;
+    z-index: 70;
 }
 
 .time-line>.point-white-2{
@@ -419,7 +430,7 @@ progress::-webkit-progress-bar>.green{
     border-radius: 50px;
     left: 49.70%;
     top:40%;
-    z-index: auto;
+    z-index: 70;
 }
 .time-line>.point-white-3{
     position: absolute;
@@ -429,7 +440,7 @@ progress::-webkit-progress-bar>.green{
     border-radius: 50px;
     left: 49.70%;
     top:70%;
-    z-index: auto;
+    z-index: 70;
 }
 
 .time-line>.point-white-4{
@@ -440,7 +451,7 @@ progress::-webkit-progress-bar>.green{
     border-radius: 50px;
     left: 49.70%;
     top:86%;
-    z-index: auto;
+    z-index: 70;
 }
 .time-line>.point-gray-1{
     position: absolute;
@@ -597,3 +608,14 @@ progress::-webkit-progress-value{
    left:1285px;
    top:1120px;
 }
+
+.btn-right{
+    position: relative;
+    width: 215px;
+    height:40px ;
+    background-color:#10CDC1;
+    border-radius: 3px;
+    left:10%;
+    top:10;
+}
+
