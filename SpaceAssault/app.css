@@ -32,6 +32,12 @@ canvas {
     color: white;
     font-size: 2em;
 }
+#score {
+    float: right;
+    color: white;
+    font-size: 2em;
+}
+
 
 .key {
     color: #aaffdd;
