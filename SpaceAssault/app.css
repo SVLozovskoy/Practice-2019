@@ -32,12 +32,13 @@ canvas {
     color: white;
     font-size: 2em;
 }
-#score {
+
+#count{
     float: right;
     color: white;
     font-size: 2em;
+    margin-right:50px  ;
 }
-
 
 .key {
     color: #aaffdd;
