@@ -432,6 +432,7 @@ function reset() {
     isGameOver = false;
     gameTime = 0;
     score = 0;
+    count = 0;
     megaliths = [];
     manna = [];
     updateMegaliths(randomInteger());
