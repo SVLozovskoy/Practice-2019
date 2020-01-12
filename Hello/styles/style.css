@@ -31,11 +31,13 @@ h3{
     font-size: 1.2em;
     margin-bottom: -15px;
 }
-
+a{
+    font-family: 'Lato', sans-serif;
+}
 p{
     font-family: 'Lato', sans-serif;
     color:#33495F;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 .list-1>ul, .list-2>ul{
@@ -52,7 +54,7 @@ p{
     
 }
 .big-text-box>.block-footer{
-    padding-top: 25px;
+    padding-top: 10px;
 }
 .block-footer>p{
     margin-right: 25px;
@@ -85,7 +87,7 @@ p{
     height:40px ;
     background-color:#16C4EC;
     border-radius: 3px;
-    left:10%;
+    left:6%;
     top:10;
 }
 
@@ -135,6 +137,7 @@ p{
     
     
     
+    
 }
 
 .social{
@@ -163,11 +166,24 @@ p{
     
 }
 
+.col-1>.text-box{
+    width: 400px;
+    margin-left: 35px;
+     
+    margin-top: 10px;
+ 
+
+}
+.col-1>.text-box>p{
+    text-align-last: justify;
+     
+    line-height: 1.5em;
+}
 .col-1>h1{
-    margin-left:25px;
+    margin-left:35px;
     margin-top: 35px;
     font-size: 2em;
-    padding-bottom: 0;
+    
 }
 .col-1>p{
     margin-left: 20px;
@@ -177,8 +193,13 @@ p{
 }
 .col-2{
     margin-top: -140px;
-    margin-right: 80px;
+    margin-right: 40px;
     float:right;  
+    text-align: right;
+   
+}
+.col-2>p{
+    letter-spacing: 1px;
 }
 
 
@@ -289,7 +310,7 @@ p{
 }
 
 .gray-small-text-box>.block-footer{
-    margin-top:1px;
+    margin-top:10px;
 }
 .right{
    background-color: #10CDC1;
@@ -615,7 +636,7 @@ progress::-webkit-progress-value{
     height:40px ;
     background-color:#10CDC1;
     border-radius: 3px;
-    left:10%;
+    left:5%;
     top:10;
 }
 
