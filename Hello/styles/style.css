@@ -41,60 +41,96 @@ p{
 }
 
 .list-1>ul, .list-2>ul{
-    padding-top: 30px;
-    margin-left: 15px;
-    line-height: 2;
-    color:#33495F;
+    line-height: 2.4;
+    color:red;
     font-family: 'Lato', sans-serif;
     list-style-image: url(../image/marker.png);
 }
+ .list-1{
+     margin-top: 37px;
+     margin-left: 12px;
+ }
+ .list-1>li:nth-child(2){
+    margin-bottom:10px ;
+ }
+ 
+
+
+
 
 .block-footer{
-    display: flex;
+    display: inline-block;
     
 }
 .big-text-box>.block-footer{
-    padding-top: 10px;
+    margin-top: 10px;
+    height: 65px;
+    width: 633px;
+   
 }
-.block-footer>p{
+.big-text-box>.block-footer>p{
     margin-right: 25px;
     margin-left: 10px;
     margin-top: 10px;
+    float: left;
 }
 
-.block-footer>img{
+.big-text-box>.block-footer>img{
     padding-top:10px;
-    padding-left: 5px;
+    width: 25px;
+    padding-left: -5px;
+    float: left;
 }
 .geo{
+    position: relative;
+    width: 11px;
+    height: 19px;
+    left:3%;
+    top:-14%;  
+
+}
+
+.geo + p{
    
-    width: 15px;
-    height: 22px;  
-    padding-right: 5px;
-    margin-left: 25px;
+    position: relative;
+    left:1.5%;
+    top:-15%;
+    font-size: 1em;
 }
 
  
 .return{
     width: 15px;
-    height: 22px; 
-    
+    height: 22px;
+    position: relative;
+    left:5%;
+    top:-15%;   
+}
+
+.return + p{
+    position: relative;
+    font-size: 1em;
+    left:4%;
+    top:-14%;
 }
 
 .block-footer>.btn{
     position: relative;
-    width: 215px;
-    height:40px ;
+    width: 218px;
+    height:37px ;
     background-color:#16C4EC;
     border-radius: 3px;
-    left:6%;
-    top:10;
+    left:62%;
+    top:-40%;
+    margin-bottom: 100px;
 }
 
 .btn>p, .btn-right>p{
+  
     position: relative;
-    top:-15%;
     color:white;
+    top:-58%;
+    letter-spacing: 0.01px;
     text-align: center;
  }
 
@@ -132,7 +168,7 @@ p{
     height: 295px;
     background-color: white;
     margin-right: 84px;
-    margin-top:82px;
+    margin-top:81px;
     margin-left: 88px;
     
     
@@ -140,9 +176,13 @@ p{
     
 }
 
-.social{
-   margin-bottom: 10px;
-    margin-left: 10px;
+.social>.icon:nth-child(1)
+{
+    margin-left: 6px;
+
+}
+.social>.icon:not(:first-child){
+    margin-left: 12px;
 }
 
 
@@ -154,9 +194,16 @@ p{
 
 .bio{
     float: right;
-    padding-top: 50px;
-    padding-right: 40px;
+    margin-right: 32px;
+    margin-top: 55px;
+    
 }
+.bio>h1{
+    
+    font-size: 1.9em;
+    
+}
+
 .icon-sq{
     display: flex;
     float:right;
@@ -168,48 +215,69 @@ p{
 
 .col-1>.text-box{
     width: 400px;
-    margin-left: 35px;
-     
-    margin-top: 10px;
- 
+    height: 105px;
+    
+    margin-left: 31px;
+    margin-top:25.4px;
+    
+    
 
 }
 .col-1>.text-box>p{
-    text-align-last: justify;
+   
+    font-size: 1.14em;
      
-    line-height: 1.5em;
+    
+    line-height: 1.7em;
+    text-align-last: justify;
+   
 }
+
+.col-1>.text-box>.last_p{
+     
+    text-align-last: left;
+    margin-top: -20px;
+    font-size: 1.12em;
+}
+.social{
+    margin-top: 30px;
+    display: flex;
+    
+}
+ 
 .col-1>h1{
-    margin-left:35px;
-    margin-top: 35px;
-    font-size: 2em;
+    margin-left:29px;
+    margin-top: 39px;
+    font-size: 2.45em;
     
 }
-.col-1>p{
-    margin-left: 20px;
-    line-height:2;
-    font-size: 1.2em;
-    
-}
+ 
 .col-2{
     margin-top: -140px;
-    margin-right: 40px;
+    margin-right: 31.5px;
     float:right;  
     text-align: right;
    
 }
 .col-2>p{
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    font-size: 1.2em;
 }
 
 
+
+
+ 
+
 .list-ul{
-    list-style: none;
+   list-style: none;
 }
 .col-2>hr{
     border-style: solid;
     border-width: 0.5px;
-    margin-top: 25px;
+    margin-top: 32px;
+    width: 275px;
+    margin-right: 5px;
 }
 .col-2 a{
     color:red;
@@ -245,9 +313,21 @@ p{
     background-color: white;
     width: 634px;
     height: 340px;
-    border-radius: 1px;
-    margin-top: 32px;
 
+    margin-top: 33px;
+
+}
+
+.big-text-box:nth-child(2)
+{
+   
+    width: 634px;
+    height: 322px;
+}
+.big-text-box:nth-child(2)>.block-footer>.btn
+{
+    
+    left: 60%;
 }
 
 .small-text-box{
@@ -261,36 +341,44 @@ p{
  
 
 .gray-big-text-box{
-    background-color: #DBE1E8;
-    width: 623px;
-    height: 173px;
-    margin-top: 37px;
-    border-radius: 1px;
-
-
-}
-.gray-small-text-box{
     background-color:#DBE1E8;
     width: 623px;
-    height: 126px;
-    margin-top: 37px;
-    border-radius: 1px;
+    height: 171px;
+    margin-top: 31px;
+    margin-left: -7px;
+
+
 }
 
 
 .big-text-box>h1, .small-text-box>h1, .gray-big-text-box>h1, .gray-small-text-box>h1{
-    margin-left: 20px;
-    margin-right: 10px;
-    float: left;
+    margin-left: 10px;
+    
 }
-.big-text-box>p, .gray-big-text-box>p, .gray-small-text-box>p{
- padding-top: 25px;   
+.blockHeader{
+    display: flex;
 }
+.big-text-box>.blockHeader>h1{
+    margin-left: 21px; 
+    margin-top:28px;
+    float:left;
+
+}
+
 .big-text-box>h2, .gray-big-text-box>h3, .gray-small-text-box>h2{
   margin-left: 20px; 
+  margin-top: -11px;
+  color:red;
+  font-size: 1.35em;
+}
+.big-text-box>.blockHeader>p{ 
+    font-size: 1.12em;
+    padding-left: 14px;
+    padding-top: 15px;
+    letter-spacing: 0.5px;
+ 
 }
 .small-text-box>h2{
-  
    margin-left: 20px;
 
 }
@@ -407,7 +495,7 @@ progress::-webkit-progress-bar>.green{
     left:50%;
     height: 1175px;
     background-color: #DBE1E8;
-    margin-right: 139px;
+    margin-right: 120px;
     margin-bottom: 150px;
     border-radius: 2px;
     
@@ -630,13 +718,79 @@ progress::-webkit-progress-value{
    top:1120px;
 }
 
+/*тут код серых больших блоков*/
+
 .btn-right{
     position: relative;
-    width: 215px;
-    height:40px ;
-    background-color:#10CDC1;
+    width: 216px;
+    height:38px ;
+    background-color:red;
     border-radius: 3px;
-    left:5%;
-    top:10;
+    left:30%;
+    margin-top:6px;
+    
+}
+
+ 
+
+.gray-big-text-box>.blockHeader>h1{
+    margin-top: 29px;
+    margin-left: 23px;
+    font-size: 1.53em;
+}
+
+.gray-big-text-box>.blockHeader>p{
+    padding-left:12px;
+    padding-top: 17px;
+    font-size: 1em;
+}
+
+.gray-big-text-box>.block-footer{
+    display: flex;
+}
+.gray-big-text-box>.block-footer>.geo{
+    position: relative;
+    left:4%;
+    margin-top: 15px;
+}
+
+.gray-big-text-box>.block-footer>.geo + p{
+    position: relative;
+    
+    left:4.9%;
+    margin-top: 19px;
+    font-size: 0.85em;
+    
+}
+
+.gray-big-text-box>.block-footer>.return{
+    position: relative;
+    left: 15.5%;
+    width: 15px;
+    height: 17px;
+    margin-top: 18px;
+}
+
+.gray-big-text-box>.block-footer>.return + p{
+    position: relative;
+    left: 16.4%;
+    font-size: 0.83em;
+    margin-top: 18.5px;
+}
+
+/*тут код маленьких  серых блоков*/
+
+.gray-small-text-box{
+    background-color: darkblue;
+    /*background-color:#DBE1E8;*/
+    width: 623px;
+    height: 126px;
+    margin-top: 30px;
+    margin-right: 50px;
+    
+
+}
+.gray-small-text-box>h1{
+    margin-left: 10px;
 }
 
