@@ -115,7 +115,7 @@ var enemySpeed = 100;
 // Update game objects
 function update(dt) {
     gameTime += dt;
-
+    //checkEnemeisBounds();
     handleInput(dt);
     updateEntities(dt);
     
@@ -247,7 +247,10 @@ function boxCollides(pos, size, pos2, size2) {
 }
 
 function checkCollisions() {
+    var flag = false;
     checkPlayerBounds();
+    checkEnemeisBounds();
+    
 
     for(var i=0;i<manna.length;i++){
         var pos = manna[i].pos;
@@ -326,16 +329,24 @@ function checkCollisions() {
         for(var j=0; j<megaliths.length; j++) {
             var pos2 = megaliths[j].pos;
             var size2 = megaliths[j].sprite.size;
+ 
+   
 
             if(boxCollides(pos, size, pos2, size2)) {
-                enemies[i].pos[0] -= 10;
-                enemies[i].pos[1] -= 15;
-                
-                break;
+                setTimeout(returnEnemiesPos, 2500, i);
+                  enemies[i].pos[1] -=10;
+                 // enemies[i].pos[0] +=10; 
                  
+                  break;
+                   
             }
+
         } 
+
+
     }
+
+
     for(var i=0; i<bullets.length; i++) {
         var pos = bullets[i].pos;
         var size = bullets[i].sprite.size;
@@ -364,8 +375,23 @@ function checkCollisions() {
         }
     }
 }
- 
-
+function returnEnemiesPos(i){
+  var isReturn = false;
+  if(!isReturn){
+    enemies[i].pos[1]+=10;
+    isReturn = true;
+  }
+} ;
+function checkEnemeisBounds(){
+    for(var i = 0; i<enemies.length; i++){
+        if(enemies[i].pos[1]<0){
+            enemies[i].pos[1] += 5;
+          //  enemies[i].pos[0] -=10;
+        }else if(enemies[i].pos[1] > canvas.height-55) {
+            enemies[i].pos[1] = canvas.height - 55;
+        }
+    }
+};
  
 function checkPlayerBounds() {
     // Check bounds
@@ -432,6 +458,7 @@ function reset() {
     isGameOver = false;
     gameTime = 0;
     score = 0;
+    count =0;
     megaliths = [];
     manna = [];
     updateMegaliths(randomInteger());
