@@ -34,6 +34,9 @@ h3{
 a{
     font-family: 'Lato', sans-serif;
 }
+b{letter-spacing: 0.48px;    
+
+}
 p{
     font-family: 'Lato', sans-serif;
     color:#33495F;
@@ -41,21 +44,51 @@ p{
 }
 
 .list-1>ul{
-    margin-left:10.5px;
-    margin-top: 42.1px;
+    margin-top: 42px;
     font-family: 'Lato', sans-serif;
-    font-size: 1.06em;
+    
+    font-size: 1.03em;
+    letter-spacing: 0.1px;
     list-style-image: url(../image/marker.png);
-    line-height: 2em;  
+    line-height: 2em;
+    margin-left: 10px;
+        
+}
+.list-1>ul>li{
+    padding-left: 5px;
+}
+.list-1>ul>li:nth-child(1){
+   
+    margin-left: -2px;
+    letter-spacing: 0.1px;
+}
+.list-1>ul>li:nth-child(2){
+    
+    margin-top: 2px;
+    margin-left: -1px;
+}
+.list-1>ul>li:nth-child(3){
+    
+    margin-top: 1px;
+    margin-left: -1px;
+}
+.list-1>ul>li:nth-child(4){
+    
+    margin-top: 1.5px;
+    margin-left: -1px;
 }
 
+
+
 .list-2>ul{
-    margin-left:10.5px;
-    margin-top: 27.1px;
+    margin-top: 25px;
     font-family: 'Lato', sans-serif;
-    font-size: 1.06em;
+    
+    font-size: 1.03em;
+    letter-spacing: 0.1px;
     list-style-image: url(../image/marker.png);
-    line-height: 2em;  
+    line-height: 2em;
+    margin-left: 10px; 
 }
 
 .big-text-box>.block-footer{
@@ -80,37 +113,37 @@ p{
     padding-left: -5px;
     float: left;
 }
-.geo{
+.big-text-box>.block-footer>.geo{
     position: relative;
-    width: 11px;
-    height: 19px;
-    left:3%;
-    top:-14%;  
+    width: 22px;
+    height: 21px;
+    left:3.5%;
+    top:-15.5%;  
 
 }
 
-.geo + p{
+.big-text-box>.block-footer>.geo + p{
    
     position: relative;
-    left:1.5%;
-    top:-15%;
+    left:2.1%;
+    top:-18%;
     font-size: 1em;
 }
 
  
-.return{
-    width: 15px;
-    height: 22px;
+.big-text-box>.block-footer>.return{
+    width: 20px;
+    height: 20px;
     position: relative;
-    left:5%;
-    top:-15%;   
+    left:6.2%;
+    top:-15.5%;   
 }
 
-.return + p{
+.big-text-box>.block-footer>.return + p{
     position: relative;
-    font-size: 1em;
-    left:4%;
-    top:-14%;
+    font-size: 0.97em;
+    left:5.5%;
+    margin-top: -2px;
 }
 
 .block-footer>.btn{
@@ -132,14 +165,28 @@ p{
     letter-spacing: 0.01px;
     text-align: center;
  }
+.big-text-box:nth-child(1)>.block-footer>.btn>p{
+    
+    position:relative;
+    letter-spacing: 0.4px;
+    
+    font-size: 1em;
+}
 
+.big-text-box:nth-child(2)>.block-footer>.btn>p{
+    
+    position:relative;
+    letter-spacing: 0.4px;
+    color:red;
+    font-size: 1em;
+}
  .block-footer>.disable{
     background-color: #B0BBCA;
 }
 .container{
     background-color:#EAEDF1 ;
     width: 1510px;
-    height: 1700px;
+    height: 1715px;
    
 }
 .container>.header{
@@ -148,11 +195,8 @@ p{
    clear: both;
    margin: auto;
    margin-bottom: 4px;
-  
-  
 }
 .left-col{
-   
     float: left;
     background-color: white;
     width: 435px;
@@ -177,7 +221,7 @@ p{
 
 .social>.icon:nth-child(1)
 {
-    margin-left: 6px;
+    margin-left: 9px;
 
 }
 .social>.icon:not(:first-child){
@@ -202,6 +246,9 @@ p{
     font-size: 1.9em;
     
 }
+.bio>p{
+    letter-spacing: 0.2px;
+}
 
 .icon-sq{
     display: flex;
@@ -213,30 +260,27 @@ p{
 }
 
 .col-1>.text-box{
-    width: 400px;
+    width: 403px;
     height: 105px;
-    
     margin-left: 31px;
-    margin-top:25.4px;
+    margin-top:25px;
     
     
 
 }
 .col-1>.text-box>p{
-   
-    font-size: 1.14em;
-     
-    
+    font-size: 1.135em;    
     line-height: 1.7em;
     text-align-last: justify;
-   
+
 }
 
 .col-1>.text-box>.last_p{
      
     text-align-last: left;
-    margin-top: -20px;
+    margin-top: -18px;
     font-size: 1.12em;
+    letter-spacing: 0.09px;
 }
 .social{
     margin-top: 30px;
@@ -246,21 +290,39 @@ p{
  
 .col-1>h1{
     margin-left:29px;
-    margin-top: 39px;
+    margin-top: 42px;
     font-size: 2.45em;
+  
     
 }
  
 .col-2{
-    margin-top: -140px;
+    margin-top: -115px;
     margin-right: 31.5px;
     float:right;  
     text-align: right;
+    line-height: 1.5em;
    
 }
-.col-2>p{
+.col-2>p>b{
+    margin-right: -1px;
     letter-spacing: 0.5px;
-    font-size: 1.2em;
+    font-size: 1.265em;
+    margin-top:10px
+    
+}
+
+.col-2 a{
+    color:red;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.4em;
+    text-decoration: none; 
+    margin-left:25px; 
+    text-align: center;
+}
+
+.col-2>a>b{
+    letter-spacing: 0.105em;
 }
 
 
@@ -278,17 +340,8 @@ p{
     width: 275px;
     margin-right: 5px;
 }
-.col-2 a{
-    color:red;
-    font-family: 'Lato', sans-serif;
-    font-size: 1.4em;
-    text-decoration: none; 
-    margin-left:25px; 
-}
 
-.col-2>p{
-    font-size: 1.4em;
-}
+
 
 .main{
     position: relative;
@@ -343,39 +396,41 @@ p{
     display: flex;
 }
 .big-text-box>.blockHeader>h1{
-    margin-left: 21px; 
-    margin-top:28px;
+    margin-left: 23px; 
+    margin-top:27px;
     float:left;
 
 }
-
+.big-text-box:nth-child(1)>.blockHeader>p{
+    
+    letter-spacing: 0.01em;
+}
 .big-text-box>.blockHeader>p{ 
     font-size: 1.12em;
     padding-left: 14px;
     padding-top: 15px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.1px;
  
 }
 .small-text-box>.blockHeader>h1{
     
-    margin-left: 22px;
-    margin-top: 26px;
+    margin-left: 23px;
+    margin-top: 30px;
 }
 .small-text-box>.blockHeader>p{
-    padding-left: 6px;
-    margin-top: 33px;
+    padding-left: 8px;
+    margin-top: 35px;
     font-size: 1.06em;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.51px;
     
 }
 .small-text-box>h2{
     font-size: 1.3em;
-    margin-top: -10px;
+    margin-top: -13px;
+    margin-left: 22px;
+    letter-spacing: 0.01em ;
 }
-.small-text-box>h2{
-   margin-left: 20px;
 
-}
 .small-text-box>.block-footer{
     position: relative;
     display: flex;
@@ -410,14 +465,6 @@ p{
     margin-top: 10px;
 
 }
-
-
-.gray-big-text-box>h3{
-    margin-bottom: 20px;
-}
-
-
-
 
 /*тут код тайм-лайна*/
 
@@ -553,61 +600,73 @@ p{
 
 .btn-right, .btn-right-2{
     position: relative;
-    width: 216px;
+    width: 219px;
     height:38px ;
     background-color:#10CDC1;
     border-radius: 3px;
     left:30%;
-    margin-top:9px; 
+    margin-top:14px; 
 }
 .btn-right-2{
-    margin-top:11px;
+    margin-bottom:-10px;
     left:28.5%;
 }
 .btn-right>p{
     position:relative;
-    margin-top:30px;
-    margin-right: 1px;
+    margin-top:29px;
+    margin-right: 6px;
     font-size: 1em;
+    
 }
 .btn-right-2>p{
+    position: relative;
     color:white;
-    font-size: 1em;
-    margin-top:6px;
-    margin-left:60px;
+    font-size: 0.95em;
+    margin-top:9px;
+    margin-left:65px;
     letter-spacing: 0.4px;
 }
 .gray-big-text-box>h3{
     color:#16C4EC;
-    margin-top:-10px;
-    margin-left:20px;
+    margin-top:-11px;
+    margin-left:23px;
+    letter-spacing: 0.1px;
+    font-size: 1.125em;
 }
+
+
+
 .gray-big-text-box>.blockHeader>h1{
-    margin-top: 29px;
+    margin-top: 29.5px;
     margin-left: 23px;
-    font-size: 1.53em;
+    font-size: 1.45em;
+    letter-spacing: 0.01em;
+   
 }
 
 .gray-big-text-box>.blockHeader>p{
-    margin-left:10px;
-    padding-top: 17px;
-    font-size: 1em;
+    margin-left:12px;
+    padding-top: 19px;
+    font-size: 1.01em;
+    letter-spacing: 0.035px;
+ 
 }
 
 .gray-big-text-box>.block-footer{
     display: flex;
+    margin-top:30px;
 }
 .gray-big-text-box>.block-footer>.geo{
     position: relative;
     left:4%;
-    margin-top: 25px;
+    margin-top: 24px;
 }
 
 .gray-big-text-box>.block-footer>.geo + p{
     position: relative;
     
-    left:4.9%;
-    margin-top: 23px;
+    left:5%;
+    margin-top: 24px;
     font-size: 0.85em;
     
 }
@@ -627,10 +686,22 @@ p{
     margin-top: 23px;
 }
 
-.gray-big-text-box>h3{
-    font-size: 1.1em;
-    letter-spacing: 0.5px;
+.gray-big-text-box:nth-child(2)>.block-footer>.geo+p{
+    margin-left: 2px;
+    margin-top: 27px;
+    letter-spacing: 0px;
+    font-size: 0.8em;
 }
+.gray-big-text-box:nth-child(2)>.block-footer>.return{
+ margin-top: 26px;
+ margin-left: 2px;
+}
+.gray-big-text-box:nth-child(2)>.block-footer>.return+p{
+    margin-top: 26px;
+    margin-left: 2px;
+    font-size: 0.8em;
+}
+
 /*тут код маленьких  серых блоков*/
 
 .gray-small-text-box{
@@ -645,22 +716,24 @@ p{
 
 .gray-small-text-box>.blockHeader>h1{
     
-    margin-left: 10px;
+  
   
     margin-left: 25px;
-    padding-top: 15px;
+    padding-top: 12px;
     font-size: 1.4em;
     letter-spacing: 0.3px;
 }
 .gray-small-text-box>.blockHeader>p{
-    padding-left:10px;
-    padding-top: 14px;
-    font-size: 1.06em;
+    padding-left:11px;
+    padding-top: 20px;
+    font-size: 0.9em;
+    letter-spacing: 0.6px;
+    
 }
 .gray-small-text-box>h2{
   
-    margin-left: 23px;
-    margin-top:-10px;
+    margin-left: 25px;
+    margin-top:-7px;
     font-size: 1.06em;
     letter-spacing: 0.5px;
 }
@@ -688,13 +761,14 @@ p{
     float: left;
     width: 11px;
     height: 19px;
-    margin-top: 20px;
+    margin-top: 18px;
     margin-left: 10px;
 }
 .gray-small-text-box>.block-footer>.geo+p{
     margin-left: 15px;
     margin-top: 20px;
     font-size: 0.8em;
+    letter-spacing: 0.2px;
 }
 .gray-small-text-box>.block-footer>.return{
     position: relative;
@@ -707,6 +781,9 @@ p{
 .gray-small-text-box>.block-footer>.return+p{
     font-size: 0.8em;
     margin-left: -50px;
+}
+.gray-small-text-box>.block-footer>.return+p{
+    color:red;
 }
 
 /*тут код блока с прогресс-барами*/
@@ -732,6 +809,8 @@ p{
     padding-right: 26px;
 }
 
+
+
 .text-annotation{
     display: flex;
     margin-left: 20px;   
@@ -739,47 +818,77 @@ p{
      
 }
 .text-annotation>p{
-    padding-right: 29.5px;
+    padding-right: 30px;
     font-size: 0.81em;
     margin-top: 10px;
-    color: red;
+}
+ 
+.text-annotation>p:nth-child(2){
+    letter-spacing: 0.03em;
+    margin-left:3px;
+    margin-top: 9px;
 }
 
-.text-annotation>p:nth-child(n+2):nth-child(-n+3){
-    
-    margin-left:4px;
+.text-annotation>p:nth-child(3){
+    letter-spacing: 0.02em;
+    margin-left: 2px;
+    margin-top: 9px;
 }
+ 
 .text-annotation>p:nth-child(4){
-    margin-left: -4px;
+    margin-left: -7px;
+    margin-top: 9px;
+    letter-spacing: 0.02em;
 }
 
 .text-annotation>p:nth-child(5){
-    margin-left: -9px;
+    margin-left: -13px;
+    letter-spacing: 0.02em;
+    margin-top: 9px;
 }
+ 
 .text-annotation>p:nth-child(6){
-    margin-left: -13.5px;
-    margin-top: 7px;
+    margin-left: -11px;
+    letter-spacing: 0.04em;
+    margin-top: 8px;
 }
 
 
-.text-annotation
 .bars{
     display: flex;
+    
 }
+.bars>.progress-col-left{
+    float: left;
+    padding-top:-10px;
+    margin-left: 0;
+
+}
+
+.bars>.progress-col-right{
+    float: left;
+    width:285px;
+    height: 250px;
+    margin-right: -300px;
+    
+}
+
 
 .bars>.progress-col-left>p, .bars>.progress-col-right>p{
     margin-bottom: -2px;
-    margin-top:27px;
-    margin-left:-2px;
+    margin-top:26px;
+    margin-left:-4px;
     
 }
+
 progress {
     border:0;
-    width:268px ;
+    width:268px;
     height: 15px;
     border-radius: 5px;
     background: #DBE1E8;
-    }
+    margin-bottom: -10px;
+}
 
 progress::-webkit-progress-bar {
     width:268px ;
@@ -791,21 +900,34 @@ progress::-webkit-progress-bar {
 .bars>.progress-col-left>progress::-webkit-progress-value {
     
     background: #10cdc1;
+    border-radius: 5px;
+    
     }
+
+.first_bar{
+    margin-top: -10px;
+}
 .bars>.progress-col-right>progress::-webkit-progress-value {
         
         background: #16C4EC;
+        border-radius: 5px;
         }
 .bars>.progress-col-left{
     margin-left: 19px;
-    line-height: 11px;
-    margin-top: 20px;
+    line-height: 0.95em;
+    
+}
+
+.first-bar{
+    margin-left: 4px;
+ 
 }
 
 .bars>.progress-col-right{
-    line-height: 11px;
-    margin-top: 20px;
+    
+    
     margin-left: 54px;
+    line-height: 0.95em;
 }
 
 .balloon{ 
@@ -814,15 +936,12 @@ progress::-webkit-progress-bar {
     width:38px; height:19px; 
     background:#34495E; 
     color:#fff;
-  
+    font-size: 0.75em;
     border-radius:6px;
     text-align: center;
+  
 }
-.balloon{
-    font-size: 0.75em;
-    text-align: center;
-    padding-top: -1px;
-}
+
 .balloon>.arrow{
     position:absolute; left:9px; top:115%; margin-top:-8px;
     display:block;
@@ -833,37 +952,37 @@ progress::-webkit-progress-bar {
     border-color: #34495E transparent transparent transparent;
     }
 .l1{
-    left:1021px;
-    top:928px;
+    left:1024px;
+    top:932px;
 }
  .l2{
-     left: 945px;
-     top:980px;
+     left: 950px;
+     top:986px;
  }
  .l3{
-     left:1055px;
-     top:1034px;
+     left:1057px;
+     top:1042px;
  }
  .l4{
-    left:1030px;
-    top:1090px;
+    left:1033px;
+    top:1096px;
  }
 
  .r1{
-    left:1315px; 
-    top:928px; 
+    left:1319px; 
+    top:932px; 
  }
  .r2{
-    left: 1330px;
-    top:980px;
-}
+    left: 1335px;
+    top:985px;
+}          
 .r3{
-    left:1281px;
-    top:1034px;
+    left:1286px;
+    top:1041px;
 }
 .r4{
-   left:1315px;
-   top:1090px;
+   left:1319px;
+   top:1096px;
   
 }
 
@@ -913,7 +1032,7 @@ progress::-webkit-progress-bar {
 .big-text-box>h2{
    
     margin-top: -13px;
-    margin-left: 20px;
+    margin-left: 22px;
     letter-spacing: 1px;
-    font-size: 1.2em;
+    font-size: 1.19em;
 }
