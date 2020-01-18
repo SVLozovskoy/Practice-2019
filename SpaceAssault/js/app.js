@@ -441,6 +441,33 @@ function checkCollisions(dt) {
         }
 
     }
+    for(var j=0; j<megaliths.length; j++) {
+        var pos2 = megaliths[j].pos;
+        var size2 = megaliths[j].sprite.size;
+
+
+
+        if(boxCollides(player.pos, player.sprite.size, pos2, size2)) {
+            //setTimeout(returnEnemiesPos, 2500, i);
+             var tempPlayerPos = player.pos[1];
+             var tempMegalithsPos = pos2[1];
+             var diffPos = Math.abs(tempPlayerPos-tempMegalithsPos);
+             var halfSpriteHeight = (size[1])/2;
+     
+             if(diffPos>halfSpriteHeight){
+              //  enemies[i].pos[0] +=enemySpeed*dt;
+                player.pos[1] += playerSpeed*(dt/2); 
+              
+                 
+             }else{
+               // enemies[i].pos[0] -=enemySpeed*dt;
+               player.pos[1] -= playerSpeed*(dt/2); 
+                }
+            
+             }
+             
+               
+        }
 
 }
 
