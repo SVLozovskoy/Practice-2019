@@ -9,13 +9,7 @@ var requestAnimFrame = (function(){
         };
 })();
 
-function randomInteger() {
-    var min = 4;
-    var max = 8;
-    
-    let rand = min  + Math.random() * (max - min);
-    return Math.round(rand);
-  }
+
 // Create the canvas
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
@@ -89,48 +83,100 @@ function updateManna(number){
   
 };
 
+function getNewPosition(){
+    var pos = [];
+    pos[0] = Math.random()*(canvas.width-90);
+    pos[1] = Math.random()*(canvas.height-90);
+    return pos;
+}
 
-function updateMegaliths(number){
-    for(var i=0;i<number;i++){ 
-         megaliths.push({  
-             pos:[Math.random()*(canvas.width-90), 
-                    Math.random()*(canvas.height-90)],
-             sprite: new Sprite('img/sprites_02.png', [0, 202], [60, 68])
-          });
-       
-          };
-          
-    };
+
+function randomInteger() {
+    var min = 4;
+    var max = 8;
+    
+    let rand = min  + Math.random() * (max - min);
+    return Math.round(rand);
+}
+//   }
+function SpawnManna(number){
+         
+        sprite = new Sprite('img/sprites_02.png',[0,160], [55,45], 0.3, [0, 1]);
+        pos = getNewPosition();
+        var flag = false;
+        
+        while(number>0){ 
+            while(!flag){
+                for(var i=0;i<manna.length;i++){
+                    if(boxCollides(manna[i].pos, sprite.size, pos, sprite.size)){
+                        flag = true;
+                         
+                    } 
+                }
+                for(var j=0;j<megaliths.length;j++){
+                    if(boxCollides(megaliths[j].pos, megaliths[j].sprite.size, pos, sprite.size)){
+                        flag=true;
+                        
+                    }
+                }
+                if(!boxCollides(player.pos, player.sprite.size, pos, sprite.size) && flag === false){
+                        manna.push({
+                        pos:pos,
+                        sprite: sprite
+                        });
+                        flag=true;
+                }else{
+                    pos = getNewPosition();
+                    flag = false;
+                }
+            }
+            flag = false;
+            
+            pos = getNewPosition();
+            number--;
+
+               
+    }
+}
+
+
+function SpawnMegaliths(number){
+
+    pos = getNewPosition();
+    sprite = new Sprite('img/sprites_02.png', [0, 202], [60, 68]);
+    var flag = false;
+    while(number+1>0){
+      
+        while(!flag){
  
+            for(var i=0;i<megaliths.length;i++){
+                if(boxCollides(megaliths[i].pos, sprite.size, pos, sprite.size)){
+                    flag=true;
+                }
+             }
+        if(!boxCollides(player.pos, player.sprite.size, pos, sprite.size) && flag === false){   
 
-function checkPosError(){
-    for(var i = 0; i<manna.length; i++){
-        if(boxCollides(player.pos, player.sprite.size, manna[i].pos, manna[i].sprite.size))
-    {
-       // alert("Алярм МАННА");
-        manna[i].pos[1] += 10;
-        manna[i].pos[0] += 10;
+            megaliths.push({
+                pos:pos,
+                sprite: sprite
+            });
+            flag = true; 
+       } else{
+        pos = getNewPosition();}
+      }
+     
+    flag = false;
+    pos = getNewPosition();
+    number--;
     }
-    for(var j = 0; j<megaliths.length;j++){
-    if(boxCollides(megaliths[j].pos, megaliths[j].sprite.size, manna[i].pos, manna[i].sprite.size))
-    {
-        //alert("Алярм Булыжник");
-        manna[i].pos[1] += 10;
-        manna[i].pos[0] += 10;
-    }
+    
 }
-}
-for(var j = 0; j<megaliths.length;j++){
-    if(boxCollides(player.pos, player.sprite.size, megaliths[j].pos, megaliths[j].sprite.size)){
-        megaliths[j].pos[1] += 10;
-        megaliths[j].pos[0] += 10;
-    }
 
-}
+  
 
 
 
-}
+ 
 
 var lastFire = Date.now();
 var gameTime = 0;
@@ -155,11 +201,10 @@ function update(dt) {
     checkEnemeisBounds();
     handleInput(dt);
     updateEntities(dt);
-             checkPosError();
-   // checkMannaPosError();
+          
     // It gets harder over time by adding enemies using this
     // equation: 1-.993^gameTime
-   if(Math.random() < 1 - Math.pow(.993, gameTime)) {
+  if(Math.random() < 1 - Math.pow(.993, gameTime)) {
         enemies.push({
             pos: [canvas.width,
                   Math.random() * (canvas.height - 39)],
@@ -167,12 +212,12 @@ function update(dt) {
                                6, [0, 1, 2, 3, 2, 1])
         });
     }
-   
+ 
 
     
     
     checkCollisions(dt);
-    checkMannaCount();
+ 
     scoreEl.innerHTML = score;
     countEl.innerHTML = count;
 };
@@ -217,10 +262,9 @@ function handleInput(dt) {
 function updateEntities(dt) {
     // Update the player sprite animation
     player.sprite.update(dt);
-    for(var i=0;i<manna.length;i++){
+    for(var i = 0; i<manna.length;i++){
         manna[i].sprite.update(dt);
-    } 
-    checkMannaCount();  
+    }
     // Update all the bullets
     for(var i=0; i<bullets.length; i++) {
         var bullet = bullets[i];
@@ -286,7 +330,7 @@ function boxCollides(pos, size, pos2, size2) {
 }
 
 function checkCollisions(dt) {
-    var flag = false;
+     
     checkPlayerBounds();
     checkEnemeisBounds();
     
@@ -309,27 +353,7 @@ function checkCollisions(dt) {
     }
 
 
-   /* for(var i=0;i<megaliths.length;i++){
-        var pos = megaliths[i].pos;
-        var size = megaliths[i].sprite.size;
-
-        for(var j = 0; j<manna.length;j++)
-        {
-            var pos2 = manna[j].pos;
-            var size2 = manna[j].sprite.size;
-
-            if(boxCollides(pos,size,pos2,size2)){
-                manna.splice(j,1);
-                j--;
-                
-                explosions.push({
-                    pos:pos2,
-                    sprite: new Sprite('img/sprites_02.png',[0,160], [55,45], 4, [0,1,2,3], null, true)
-                });
-                break;
-            }
-        }
-    }*/ 
+   
     
     for(var i=0; i<enemies.length; i++) {
         var pos = enemies[i].pos;
@@ -377,9 +401,9 @@ function checkCollisions(dt) {
                  var tempEnemiesPos = pos[1];
                  var tempMegalithsPos = pos2[1];
                  var diffPos = Math.abs(tempEnemiesPos-tempMegalithsPos);
-                 var halfSpriteWidth = (size[1])/2;
+                 var halfSpriteHeight = (size[1])/2;
          
-                 if(diffPos>halfSpriteWidth){
+                 if(diffPos>halfSpriteHeight){
                   //  enemies[i].pos[0] +=enemySpeed*dt;
                     enemies[i].pos[1] += enemySpeed*(dt/2); 
                   
@@ -417,34 +441,9 @@ function checkCollisions(dt) {
         }
 
     }
-    for (var i = 0; i<megaliths.length; i++){
-        var pos = megaliths[i].pos;
-        var size = megaliths[i].sprite.size;
 
-        if(boxCollides(pos,size,player.pos, player.sprite.size)){
-          
-        var tempPlayerPos = player.pos[1];
-        var tempMegalithsPos = pos[1];
-        var diffPos = Math.abs(tempPlayerPos-tempMegalithsPos);
-        var halfSpriteWidth = size[1]/2;
-
-        if(diffPos>halfSpriteWidth){
-            player.pos[1] += playerSpeed*dt;
-           break;
-            
-        }else if(diffPos<halfSpriteWidth) {
-            player.pos[1] -=playerSpeed*dt; break;
-
-        }}
-    }
 }
-function returnEnemiesPos(i){
-  var isReturn = false;
-  if(!isReturn){
-    enemies[i].pos[1]+=10;
-    isReturn = true;
-  }
-} ;
+
 function checkEnemeisBounds(){
     for(var i = 0; i<enemies.length; i++){
         if(enemies[i].pos[1]<0){
@@ -477,8 +476,7 @@ function checkPlayerBounds() {
 
 
 
-updateMegaliths(randomInteger());
-updateManna(randomInteger());
+
 // Draw everything
 function render() {
     ctx.fillStyle = terrainPattern;
@@ -528,11 +526,10 @@ function reset() {
     count =0;
     megaliths = [];
     manna = [];
-    updateMegaliths(randomInteger());
-    updateManna(randomInteger()); 
-    checkPosError();
     enemies = [];
     bullets = [];
     
     player.pos = [30, canvas.height / 2];
+    SpawnMegaliths(randomInteger());
+    SpawnManna(randomInteger());
 };
