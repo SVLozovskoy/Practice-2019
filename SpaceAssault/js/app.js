@@ -125,9 +125,9 @@ function getMegalithsSprite(){
     var i = Math.random();
     var sprite;
     if (i>0.5){
-        sprite = new Sprite('img/sprites_02.png', [0, 203], [80, 70]);
+        sprite = new Sprite('img/sprites_02.png', [0, 200], [57, 65]);
     }else{
-        sprite = new Sprite('img/sprites_02.png', [0, 265], [70, 90]);
+        sprite = new Sprite('img/sprites_02.png', [0, 268], [53, 60]);
     }
 
     return sprite;
@@ -386,31 +386,28 @@ function checkCollisions(dt) {
     }
     
     for(var i=0; i<megaliths.length; i++) {
-        var pos = megaliths[i].pos;
-        var size = megaliths[i].sprite.size;
+        var megalithPosition = megaliths[i].pos;
+        var megalithSize = megaliths[i].sprite.size;
 
         for(var j=0; j<enemies.length; j++) {
-            var pos2 = enemies[j].pos;
-            var size2 = enemies[j].sprite.size;
+            var enemyPosition = enemies[j].pos;
+            var enemySize = enemies[j].sprite.size;
  
-            if(boxCollides(pos, size, pos2, size2)) {
-                debugger;
-               
-                 var tempEnemiesPos = pos2[1];
-                 var tempMegalithsPos = pos[1];
-                 var diffPos = Math.floor(Math.abs(tempEnemiesPos-tempMegalithsPos));
-                 var halfSpriteHeight = (size[1])/2;
+            if(boxCollides(megalithPosition, megalithSize, enemyPosition, enemySize)) {
+
+                 var diffPos = Math.floor(Math.abs(enemyPosition[1]-megalithPosition[1]));
+                 
          
-                 if(diffPos>(halfSpriteHeight)){
+                 if(diffPos>(megalithSize[1])/2){
                     
                     
-                    enemies[j].pos[1] += enemySpeed*dt;
-                    
+                    enemies[j].pos[1] += (enemySpeed*dt) ;
+                    enemies[j].pos[0] += (enemySpeed*dt)/2 ;
                    
 
                  }else{
-                    enemies[j].pos[1] -= enemySpeed*dt; 
-                   
+                    enemies[j].pos[1] -= (enemySpeed*dt); 
+                    enemies[j].pos[0] += (enemySpeed*dt)/2 ;
                     
                    
 
@@ -431,10 +428,10 @@ function checkCollisions(dt) {
         var size = bullets[i].sprite.size;
 
         for(var j=0; j<megaliths.length; j++) {
-            var pos2 = megaliths[j].pos;
-            var size2 = megaliths[j].sprite.size;
+            var megalithPosition = megaliths[j].pos;
+            var megalithSize = megaliths[j].sprite.size;
 
-            if(boxCollides(pos, size, pos2, size2)) {
+            if(boxCollides(pos, size, megalithPosition, megalithSize)) {
                  
                 bullets.splice(i, 1);
                 i--;
@@ -444,30 +441,43 @@ function checkCollisions(dt) {
 
     }
     for(var j=0; j<megaliths.length; j++) {
-        var pos2 = megaliths[j].pos;
-        var size2 = megaliths[j].sprite.size;
+        var megalithPosition = megaliths[j].pos;
+        var megalithSize = megaliths[j].sprite.size;
+       
+        
 
-
-
-        if(boxCollides(player.pos, player.sprite.size, pos2, size2)) {
-           
-             var tempPlayerPos = player.pos[1];
-             var tempMegalithsPos = pos2[1];
-             var diffPos = Math.abs(tempPlayerPos-tempMegalithsPos);
-             var halfSpriteHeight = (size[1])/2;
+        if(boxCollides(player.pos, player.sprite.size, megalithPosition, megalithSize)) {
+            
+            
+             var diffPos = Math.abs(player.pos[1]-megalithPosition[1]);
+             var halfSpriteHeight = (megalithPosition[1])/2;
      
              if(diffPos>halfSpriteHeight){
-               
-                player.pos[1] += (playerSpeed )*(dt); 
-                
               
-                 
+                player.pos[1] += (playerSpeed )*(dt); 
+                if((canvas.height-player.pos[1]) < (Math.abs(canvas.height - mega-megalithSize[1]))){
+                    if(megaliths[j].pos[0]-player.pos[0]>0){
+                        player.pos[0] -= playerSpeed*dt;
+                    }else{ player.pos[0] += playerSpeed*dt;
+    
+                    }  player.pos[1] += (playerSpeed )*(dt);
+                       player.pos[0] -= (playerSpeed*dt) ;
+                }
              }else{
-                
+                if(player.pos[1] < (Math.abs(megalithPosition[1]-size2[1]))){
+                  
+                if(megaliths[j].pos[0]-player.pos[0]>0){
+                    player.pos[0] -= playerSpeed*dt;
+                }else{ player.pos[0] += playerSpeed*dt;
+
+                }
+                }
                player.pos[1] -= (playerSpeed )*(dt); 
+               player.pos[0] -= (playerSpeed*dt) ;
                 }
             
-             }
+            
+    }
              
                
         }
