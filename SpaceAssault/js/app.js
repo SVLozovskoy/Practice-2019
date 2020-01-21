@@ -202,14 +202,14 @@ function update(dt) {
           
     // It gets harder over time by adding enemies using this
     // equation: 1-.993^gameTime
-   if(Math.random() < 1 - Math.pow(.993, gameTime)) {
-         enemies.push({
-             pos: [canvas.width,
-                   Math.random() * (canvas.height - 39)],
-             sprite: new Sprite('img/sprites.png', [0, 78], [80, 38],
-                                6, [0, 1, 2, 3, 2, 1])
-         });
-    }
+  if(Math.random() < 1 - Math.pow(.993, gameTime)) {
+        enemies.push({
+            pos: [canvas.width,
+                  Math.random() * (canvas.height - 39)],
+            sprite: new Sprite('img/sprites.png', [0, 78], [80, 38],
+                               6, [0, 1, 2, 3, 2, 1])
+        });
+   }
  
 
     
@@ -394,14 +394,15 @@ function checkCollisions(dt) {
             var enemySize = enemies[j].sprite.size;
  
             if(boxCollides(megalithPosition, megalithSize, enemyPosition, enemySize)) {
+                debugger;
 
                  var diffPos = Math.floor(Math.abs(enemyPosition[1]-megalithPosition[1]));
                  var halfSpriteHeight = (megalithSize[1])/2;
          
-                 if(diffPos>(halfSpriteHeight)){
+                 if(diffPos>(halfSpriteHeight)){debugger;
                     
                     
-                    enemies[j].pos[1] += (enemySpeed*dt) ;
+                    enemies[j].pos[1] -= (enemySpeed*dt) ;
                     enemies[j].pos[0] += ((enemySpeed)*dt) ;
                    
 
