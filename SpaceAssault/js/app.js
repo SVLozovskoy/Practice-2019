@@ -125,9 +125,9 @@ function getMegalithsSprite(){
     var i = Math.random();
     var sprite;
     if (i>0.5){
-        sprite = new Sprite('img/sprites_02.png', [0, 200], [57, 65]);
+        sprite = new Sprite('img/sprites_02.png', [0, 200], [57, 75]);
     }else{
-        sprite = new Sprite('img/sprites_02.png', [0, 268], [53, 60]);
+        sprite = new Sprite('img/sprites_02.png', [0, 265], [57, 75]);
     }
 
     return sprite;
@@ -396,18 +396,18 @@ function checkCollisions(dt) {
             if(boxCollides(megalithPosition, megalithSize, enemyPosition, enemySize)) {
 
                  var diffPos = Math.floor(Math.abs(enemyPosition[1]-megalithPosition[1]));
-                 
+                 var halfSpriteHeight = (enemySize[1])/2;
          
-                 if(diffPos>(megalithSize[1])/2){
+                 if(diffPos>(halfSpriteHeight)){
                     
                     
                     enemies[j].pos[1] += (enemySpeed*dt) ;
-                    enemies[j].pos[0] += (enemySpeed*dt)/2 ;
+                    enemies[j].pos[0] += ((enemySpeed/2)*dt) ;
                    
 
                  }else{
                     enemies[j].pos[1] -= (enemySpeed*dt); 
-                    enemies[j].pos[0] += (enemySpeed*dt)/2 ;
+                    enemies[j].pos[0] += ((enemySpeed/2)*dt)  ;
                     
                    
 
@@ -454,8 +454,8 @@ function checkCollisions(dt) {
      
              if(diffPos>halfSpriteHeight){
               
-                player.pos[1] += (playerSpeed )*(dt); 
-                if((canvas.height-player.pos[1]) < (Math.abs(canvas.height - mega-megalithSize[1]))){
+               
+                if((canvas.height-player.pos[1]) < (Math.abs(canvas.height-megalithPosition[1]-megalithSize[1]))){
                     if(megaliths[j].pos[0]-player.pos[0]>0){
                         player.pos[0] -= playerSpeed*dt;
                     }else{ player.pos[0] += playerSpeed*dt;
@@ -464,7 +464,7 @@ function checkCollisions(dt) {
                        player.pos[0] -= (playerSpeed*dt) ;
                 }
              }else{
-                if(player.pos[1] < (Math.abs(megalithPosition[1]-size2[1]))){
+                if(player.pos[1] < (Math.abs(megalithPosition[1]-megalithSize[1]))){
                   
                 if(megaliths[j].pos[0]-player.pos[0]>0){
                     player.pos[0] -= playerSpeed*dt;
