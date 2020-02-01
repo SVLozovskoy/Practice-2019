@@ -125,7 +125,7 @@ function getMegalithsSprite(){
     var i = Math.random();
     var sprite;
     if (i>0.5){
-        sprite = new Sprite('img/sprites_02.png', [0, 200], [57, 64]);
+        sprite = new Sprite('img/sprites_02.png', [0, 199], [57, 62]);
     }else{
         sprite = new Sprite('img/sprites_02.png', [0, 266], [57, 49]);
     }
@@ -188,7 +188,7 @@ var scoreEl = document.getElementById('score');
 
 
 // Speed in pixels per second
-var playerSpeed = 200;
+var playerSpeed = 150;
 var bulletSpeed = 500;
 var enemySpeed = 100;
 
@@ -293,7 +293,7 @@ function updateEntities(dt) {
             enemies.splice(i, 1);
             i--;
         }
-    }
+    } 
 
     // Update all the explosions
     for(var i=0; i<explosions.length; i++) {
@@ -326,51 +326,44 @@ function boxCollides(pos, size, pos2, size2) {
                     pos2[0], pos2[1],
                     pos2[0] + size2[0], pos2[1] + size2[1]);
 }
-function checkPlayerCollisions(dt){ /* отдельный метод для проверки коллизии между каждым мегалитом и игроком.
-                                       реализовал следующую логику
-                                       1. сначала проверяем выше или ниже мегалита мы находимся. если ниже - то при движении вверх и встрече
-                                       с мегалитом - стоим. если выше - то при движении вниз.
-                                       2. проверяем слева или справа от магалита стоит игрок. Если слева  и на следующем шаге будет мегалит -
-                                       гасим скорость по горизонтали и уходим ниже. Если справа - гасим скорость по горизонтали и уходим выше.  */
+function checkPlayerCollisions(dt){ 
 
     var x =  player.pos[0];
     var y = player.pos[1];
     var new_pos = [];
-    /* ввел конструкцию с new_pos и x и y  потому что при передаче координат напрямую работало не корректно*/
+
     new_pos[0] =x; new_pos[1] = y;
     
     for(var i=0; i<megaliths.length;i++){
- 
-        if((new_pos[1]-megaliths[i].pos[1])<0){ //игрок выше мегалита
-            new_pos[1] += playerSpeed*dt;
-            if(boxCollides(new_pos, player.sprite.size, megaliths[i].pos, megaliths[i].sprite.size)){
-                player.pos[1]  -= playerSpeed*dt;
-                
+        if(input.isDown('DOWN') || input.isDown('s')) {
+            new_pos[1] += playerSpeed * dt;
+            if(boxCollides(new_pos, player.sprite.size, megaliths[i].pos, megaliths[i].sprite.size))
+            {
+                player.pos[1] -= playerSpeed*dt;
             }
-
-        }else{ //игрок ниже мегалита
-            new_pos[1] -= playerSpeed*dt;
-            if(boxCollides(new_pos, player.sprite.size, megaliths[i].pos, megaliths[i].sprite.size)){
-                player.pos[1]  += playerSpeed*dt;
+        }
+        if(input.isDown('UP') || input.isDown('w')) {
+            new_pos[1] -= playerSpeed * dt;
+            if(boxCollides(new_pos, player.sprite.size, megaliths[i].pos, megaliths[i].sprite.size))
+            {
+                player.pos[1] += playerSpeed*dt;
             }
-
         }
-        
-       if((new_pos[0]-megaliths[i].pos[0])<0){ //проверяю стою перед мегалитом?
-        new_pos[0] += playerSpeed*dt; // добавляю к позиции 1 шаг в текущем направлении
-        if(boxCollides(new_pos, player.sprite.size, megaliths[i].pos, megaliths[i].sprite.size)){
-            player.pos[0]  -= playerSpeed*dt;
-            player.pos[1] += playerSpeed*dt;
+        if(input.isDown('LEFT') || input.isDown('a')) {
+            new_pos[0] -= playerSpeed * dt;
+            if(boxCollides(new_pos, player.sprite.size, megaliths[i].pos, megaliths[i].sprite.size))
+            {
+                player.pos[0] += playerSpeed*dt;
+            }
+        }
+        if(input.isDown('RIGHT') || input.isDown('d')) {
+            new_pos[0] += playerSpeed * dt;
+            if(boxCollides(new_pos, player.sprite.size, megaliths[i].pos, megaliths[i].sprite.size))
+            {
+                player.pos[0] -= playerSpeed*dt;
+            }
         }
 
-       }else{//  или стою стою за мегалитом
-        new_pos[0] -= playerSpeed*dt;// добавляю к позиции 1 шаг в текущем направлении
-        if(boxCollides(new_pos, player.sprite.size, megaliths[i].pos, megaliths[i].sprite.size)){
-            player.pos[0]  += playerSpeed*dt;
-            player.pos[1] -= playerSpeed*dt;
-        }
-
-       }
     }
 }
 
@@ -379,20 +372,26 @@ function checkEnemeisCollisions(dt){
         var x =  enemies[k].pos[0];
         var y = enemies[k].pos[1];
         var new_pos = [];
-        var flag = false;
+       
         new_pos[0] =x; new_pos[1] = y;
         new_pos[0] -= enemySpeed*dt ;
 
         for(var n = 0; n<megaliths.length; n++){
             if(boxCollides(new_pos, enemies[k].sprite.size, megaliths[n].pos, megaliths[n].sprite.size)){
               
-                    enemies[k].pos[0] +=enemySpeed*dt;
-
-                    enemies[k].pos[1] -=enemySpeed*dt;    
+                    if((enemies[k].pos[1] - megaliths[n].pos[1])>0)
+                    {
+                        enemies[k].pos[0] += enemySpeed*dt;
+                        enemies[k].pos[1] += enemySpeed*dt;
+                        
+                    }else{
+                        enemies[k].pos[0] += enemySpeed*dt;
+                        enemies[k].pos[1] -= enemySpeed*dt;
+                    }
                 
-                    for(var m = 0; m<megaliths.length; m++){ // проверяю застрял ли чужак в другом мегалите при попытке уйти вверх?
+                    for(var m = 0; m<megaliths.length; m++){ 
                         if(boxCollides(enemies[k].pos, enemies[k].sprite.size, megaliths[m].pos, megaliths[m].sprite.size)){
-                            enemies[k].pos[1] +=enemySpeed*dt;}
+                            enemies[k].pos[0] +=enemySpeed*dt;}
                         }
                
             }
